@@ -17,3 +17,26 @@ export const getQuestion = async () => {
     return error;
   }
 }
+
+export const getGroupAnswers = async (ID) => {
+  try {
+    const sql = `CALL get_group_answers(?)`;
+    const values = [
+      ID || 1
+    ];
+    const [resut, fields] = await connection.query(sql,values);
+    return await [resut, fields];
+  } catch (error) {
+    return error;
+  }
+}
+
+export const getListQuestions = async () => {
+  try {
+    const sql = `CALL get_list_questions()`;
+    const [resut, fields] = await connection.query(sql);
+    return await [resut, fields];
+  } catch (error) {
+    return error;
+  }
+}

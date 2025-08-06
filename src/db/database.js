@@ -31,6 +31,20 @@ export const getGroupAnswers = async (ID) => {
   }
 }
 
+export const postQuestion = async (question,answer) => {
+  try {
+    const sql = `CALL insert_question(?,?)`;
+    const values = [
+      question || "",
+      answer || ""
+    ];
+    const [resut, fields] = await connection.query(sql,values);
+    return await [resut, fields];
+  } catch (error) {
+    return error;
+  }
+}
+
 export const getListQuestions = async () => {
   try {
     const sql = `CALL get_list_questions()`;

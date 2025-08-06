@@ -9,12 +9,12 @@ const Botton = ({ texto, action, setSelectedQuestion, total }) => {
     });
   };
   return (
-    <div
+    <button
       onClick={handleClick}
       className="hover:bg-stone-200 rounded-lg shadow shadow-stone-300 bg-white p-2 border-slate-200 text-center fond-mono text-lg cursor-pointer"
     >
       {texto}
-    </div>
+    </button>
   );
 };
 export default Botton;
